@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>lawyer1</title>
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/lawyer1.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script src="../js/way.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+	</head>
+	<body>
+		<header>法官日记
+			<a href="#">
+				<div class="icon-u04"></div>
+			</a>
+			<a href="#">
+				<div class="icon-u13"></div>
+			</a>
+		</header>
+		<main>
+			<div class="text">
+				<div id="day1">
+					<div class="date">第一天</div>
+					<div class ="discussAndVote">
+						<div class="discuss">讨论</div>
+						<div class="vote">全民投票</div>
+						<p></p>
+						
+					</div>
+					
+				</div>
+				
+				
+			</div>
+			
+			
+				
+			<div class="dialog">
+				<div class="dialog-text pt20 pb20 pl20">请玩家依次发言讨论</div>
+				<div>
+					<div class="pt10 pb10" id="dialog-confirm">确认</div>
+					<div class="pt10 pb10" id="dialog-cancel">取消</div>
+				</div>
+			</div>
+			
+			<div class="order-dialog">
+				<div class="dialog-text pt20 pb20 pl20">请按顺序操作</div>
+				<div>
+					<div class="pt10 pb10" id="order-dialog-confirm">确认</div>
+					<div class="pt10 pb10" id="order-dialog-cancel">取消</div>
+				</div>
+			</div>
+			
+			
+		</main>
+		<footer>
+			<button class="l"><a href="#">结束游戏</a></button>
+			<button class="r"><a href="../html/task13-2.html#002">法官日志</a></button>
+		</footer>
+		<div class="black-layer"></div>
+		
+		
+		
+		<script>
+			$(document).ready(function(){
+				
+				let crA= JSON.parse(sessionStorage.getItem("crkey"));
+				
+				
+				
+				
+				
+				let discussed=0;
+				
+				
+				//点击dialog的确认按钮,dialog消失
+				$("#order-dialog-confirm").click(function() {
+							$(".order-dialog").hide();
+							$(".black-layer").hide();
+								
+				});
+				//点击dialog的取消按钮,dialog消失
+				$("#order-dialog-cancel").click(function() {
+							$(".order-dialog").hide();
+							$(".black-layer").hide();
+								
+				});
+				
+				
+				
+			
+				
+				
+				
+				
+				//点击dialog的确认按钮,dialog消失
+				$("#dialog-confirm").click(function() {
+							$(".dialog").hide();
+							$(".black-layer").hide();
+							$(".discuss").css("background-color","#83b09a");	
+				});
+				//点击dialog的取消按钮,dialog消失
+				$("#dialog-cancel").click(function() {
+							$(".dialog").hide();
+							$(".black-layer").hide();
+								
+				});
+				
+				
+				
+				
+				//复制
+				function cloneItem(){
+					
+						let i=crA.length;
+						console.log(i);
+						for(let k=2;k<i+2;k++){
+							$("#day1").clone(true).attr("id","day"+k).appendTo($(".text"));
+							
+						}
+						
+					
+					
+				}
+				cloneItem();
+				
+				
+				//添加第几天,第几天发生了的事情
+			
+				function addText(){
+					var dayArray=["第一天","第二天","第三天","第四天","第五天","第六天","第七天","第八天","第九天","第十天","第十一天","第十二天","第十三天","第十四天","第十五天"]
+					if(crA!=null){
+						for(let i=0;i<crA.length+1;i++){
+							let t="#day"+parseInt(i+1)+" .date";
+							console.log(t);
+							$(t).html(dayArray[i]);
+							
+							
+						}
+						
+						for(let i=0;i<crA.length;i++){
+							
+							let m="#day"+parseInt(i+1)+" .discussAndVote p";
+							$(m).html(crA[i]);
+							$(m).siblings().css("background-color","#83b09a");	
+							console.log("m:"+m);
+							
+						}
+						
+						
+						
+						
+					}
+					
+					
+				}
+				addText();
+				
+				
+				//点击第几天按钮 弹出日志
+				function dialog(){
+					
+					
+					    $(".date").click(function(){
+						    $(this).siblings(".discussAndVote").toggle();
+					    });
+					
+					
+				}
+				dialog();
+				
+				
+				let i=crA.length;
+				 
+				let votePart="#day"+parseInt(i+1)+" .discussAndVote"+" .vote";
+				let discussPart="#day"+parseInt(i+1)+" .discussAndVote"+" .discuss";
+				
+				
+				
+				//点击投票按钮,弹出请按顺序操作对话框或者跳转页面
+				
+					
+					$(votePart).click(function() {
+						
+						
+						
+						console.log("votePart："+votePart);
+						
+						if(discussed==0){
+							$(".order-dialog").show();
+							$(".black-layer").show();
+							
+						}else if(discussed==1){
+							location.href="../html/task13-5.html";
+							
+						}
+									
+									
+									
+						});
+					
+						
+					$(discussPart).click(function() {
+						
+						
+						console.log("votePart："+votePart);
+						
+						discussed=1;
+					    $(".dialog").show();
+						$(".black-layer").show();
+									
+						});	
+					
+					
+					
+				
+				
+			
+				
+				
+				
+			
+				
+				
+				
+				
+
+            });
+			
+			
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+	</html>

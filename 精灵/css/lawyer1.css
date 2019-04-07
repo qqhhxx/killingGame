@@ -1,0 +1,207 @@
+body {
+  font-family: HiraginoSansGB-W3;
+  background-color: #f0f0f0;
+}
+header {
+  position: relative;
+  text-align: center;
+  height: 44px;
+  box-sizing: border-box;
+  background: #29BDE0;
+  color: #fff;
+  font-size: 17px;
+  padding-top: 17px;
+  line-height: 1;
+  border-bottom: 1px solid #fff;
+}
+header .icon-u04 {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  background: url(../img/icon.png);
+  width: 25px;
+  height: 21px;
+  background-position: -210px 0px;
+}
+header .icon-u13 {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  background: url(../img/icon.png);
+  width: 20px;
+  height: 20px;
+  background-position: -276px -30px;
+}
+main {
+  padding-bottom: 300px;
+}
+.text {
+  margin-left: 4px;
+  margin-right: 5px;
+  margin-top: 18px;
+  background: #F0F0F0;
+  font-size: 15px;
+}
+.text .date {
+  width: 100%;
+  text-align: center;
+  color: #29BDE0;
+  background: #fff;
+  line-height: 43px;
+  height: 43px;
+  border: 1px solid #C9C9C9;
+}
+.text .discussAndVote {
+  display: none;
+  margin-top: 10px;
+  padding-bottom: 16px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #C9C9C9;
+}
+.text .discussAndVote .discuss,
+.text .discussAndVote .vote {
+  margin: 26px 30px 10px 47px;
+  color: #fff;
+  background: #29BDE0;
+  text-align: center;
+  line-height: 38px;
+  height: 38px;
+}
+.text .discussAndVote .vote a {
+  text-decoration: none;
+  color: #fff;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: #fff;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  overflow: auto;
+  background: rgba(41, 189, 224, 0.48);
+}
+footer button {
+  border: 0;
+}
+footer .l {
+  box-sizing: border-box;
+  width: 42.34375vw;
+  line-height: 43px;
+  background-color: #FBB435;
+  border-radius: 5px;
+  margin-left: 12px;
+}
+footer .r {
+  box-sizing: border-box;
+  width: 42.34375vw;
+  line-height: 43px;
+  background-color: #FBB435;
+  border-radius: 5px;
+  margin-right: 12px;
+}
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+.dialog {
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 12px;
+  color: #a1a1a1;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 240px;
+  /* 要设定宽度 */
+  z-index: 305;
+}
+.dialog .dialog-text {
+  border-bottom: 1px solid #999;
+  font-size: 14px;
+}
+.dialog #dialog-confirm {
+  float: right;
+  width: 50%;
+  border-left: 1px solid #999;
+  text-align: center;
+}
+.dialog #dialog-cancel {
+  text-align: center;
+}
+.dialog .pt10 {
+  padding-top: 10px;
+}
+.dialog .pb10 {
+  padding-bottom: 10px;
+}
+.dialog .pt20 {
+  padding-top: 20px;
+}
+.dialog .pb20 {
+  padding-bottom: 20px;
+}
+.dialog .pl20 {
+  padding-left: 20px;
+}
+.order-dialog {
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 12px;
+  color: #a1a1a1;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 240px;
+  /* 要设定宽度 */
+  z-index: 305;
+}
+.order-dialog .dialog-text {
+  border-bottom: 1px solid #999;
+  font-size: 14px;
+}
+.order-dialog #order-dialog-confirm {
+  float: right;
+  width: 50%;
+  border-left: 1px solid #999;
+  text-align: center;
+}
+.order-dialog #order-dialog-cancel {
+  text-align: center;
+}
+.order-dialog .pt10 {
+  padding-top: 10px;
+}
+.order-dialog .pb10 {
+  padding-bottom: 10px;
+}
+.order-dialog .pt20 {
+  padding-top: 20px;
+}
+.order-dialog .pb20 {
+  padding-bottom: 20px;
+}
+.order-dialog .pl20 {
+  padding-left: 20px;
+}
+.black-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(192, 192, 192, 0.8);
+  z-index: 300;
+  display: none;
+}

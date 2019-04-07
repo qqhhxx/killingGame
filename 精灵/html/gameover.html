@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>gameover</title>
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/gameover.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script src="../js/way.js"></script>
+		
+	</head>
+
+	<body>
+		<header>游戏结果
+			<a href="../index.html">
+				<div class="icon-u04"></div>
+			</a>
+			<a href="">
+				<div class="icon-u13"></div>
+			</a>
+		</header>
+		
+		<div class="db">
+			<div class="f16"></div>
+			<div class="f13 time"></div>
+			
+			<div class="mt5">
+				<div class="f13">剩余玩家</div>					
+				
+				<div class="f13 l" id="left">
+					<div>幽灵<span id="ghost1">1</span>人</div>
+				</div>
+				<div class="f13" id="right">
+					<div>水民<span id="waterman1">3</span>人</div>
+				</div>
+			</div>
+			
+	        <div id="wordA">水民词组：<span way-data="myFormData.waterMan"></span></div>
+	        <div id="wordB">幽灵词组：<span way-data="myFormData.ghost"></span></div>
+
+		</div>
+		
+		<div class="bgwh">
+			<div id="dialog1">
+				<div class="f13">第一天</div>
+				<div class="f13 dialog-text"></div>
+				
+			</div>
+			
+		    
+		</div>
+		
+		<footer>
+			<button class="l"><a href="../html/sz.html">再来一局</a></button>
+			<button class="r"><a href="#">上传并分享</a></button>
+		</footer>
+		
+		<script>
+			//根据结果显示背景图片
+			function createBackground(){
+				var crA= JSON.parse(sessionStorage.getItem('crkey'));
+				var aar= JSON.parse(sessionStorage.getItem('aarkey'));
+				
+				console.log(aar);
+				if (aar.includes("幽灵") == false) {
+					console.log("水民胜利");
+				    $(".db").css("background-image","url('../img/game-over.png')");
+					
+				} else if (aar.includes("水民") == false) {
+					console.log("幽灵胜利");
+					$(".db").css("background-image","url('../img/ghost-win.png')");
+					$(".db .f16").html("太棒了!你知道么？在捉鬼游戏中只有20%的幽灵取得游戏最终的 胜利哦！");
+				}
+				
+				
+				
+			}
+			createBackground();
+			
+			//显示本次游戏共用了多少时间
+			
+			function formatDuring() {
+				
+				let time2= new Date();
+				time2=time2.getTime();
+				let time1= JSON.parse(sessionStorage.getItem('time1key'));//之前页面设置保存的时间
+				let mss=(time2-time1);
+			   
+			    var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			    var minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
+			   
+			    let time="本次游戏共计用时"+hours + " 小时 " + minutes + " 分钟 ";
+				$(".db .time").html(time);
+				console.log(time2);
+				console.log(time1);
+				
+				
+				
+			}
+			formatDuring();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//显示数量
+			
+	
+			
+			
+			
+			
+			function shownumber(){
+				
+				let aar= JSON.parse(sessionStorage.getItem('aarkey'));
+				
+				let countWaterman=0;
+				let countGhost=0;
+				for(let i=0; i<aar.length;i++){
+					
+					if(aar[i]=="水民"){
+						countWaterman ++;
+						}
+					if(aar[i]=="幽灵"){
+						countGhost ++;
+						}	
+						
+				}
+				$("#ghost1").html(countGhost);
+				$("#waterman1").html(countWaterman);
+				
+				
+			}
+			shownumber();
+			
+			
+			//日志功能
+			function showDialog(){
+				var crA= JSON.parse(sessionStorage.getItem('crkey'));
+				console.log("crA:"+crA);
+				
+				
+				let i= crA.length;
+				console.log(i);
+				for(let k=2;k<i+1;k++){
+					
+					
+					$("#dialog1").clone().attr("id","dialog"+k).appendTo($(".bgwh"));
+					
+					
+				}
+				for(let k=2;k<i+2;k++){
+					let dayArray=["第一天","第二天","第三天","第四天","第五天","第六天","第七天","第八天","第九天","第十天","第十一天","第十二天","第十三天","第十四天","第十五天"];
+					let m ="#dialog"+(k-1)+" .dialog-text";
+					let q ="#dialog"+(k-1)+" .f13";
+					console.log(m);
+					let n=crA[k-2];
+					
+					
+					$(q).html(dayArray[k-2]);
+					$(m).html(crA[k-2]);
+					
+				}
+				
+				
+			}
+			showDialog();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>	
+		
+
+	
+	
+
+</html>

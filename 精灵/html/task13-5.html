@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>task13-5</title>
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/task13-5.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script src="../js/state-machine.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				//播放完毕
+				$('#mp3Btn').on('ended', function() {
+					console.log("音频已播放完成");
+					$('.btn-audio').css({
+						'background': 'url(../img/u10.png) no-repeat center bottom',
+						'background-size': 'cover'
+					});
+				})
+				//播放器控制
+				var audio = document.getElementById('mp3Btn');
+				audio.volume = .3;
+				$('.btn-audio').click(function() {
+					event.stopPropagation(); //防止冒泡
+					if (audio.paused) { //如果当前是暂停状态
+						$('.btn-audio').css({
+							'background': 'url(../img/u10.png) no-repeat center bottom',
+							'background-size': 'cover'
+						});
+						audio.play(); //播放
+						return;
+					} else { //当前是播放状态
+						$('.btn-audio').css({
+							'background': 'url(../img/u10.png) no-repeat center bottom',
+							'background-size': 'cover'
+						});
+						audio.pause(); //暂停
+					}
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<div class="f18">法官日记
+				<div class="icon-u05"></div>
+				<div class="icon-u06"></div>
+			</div>
+
+			<div class="f13">发言讨论结束，大家请投票
+				<div class="icon-u03"></div>
+				<div class="btn-audio"><audio id="mp3Btn">
+						<source src="../audio/财富自由.mp3" type="audio/mpeg" /></audio></div>
+			</div>
+		</header>
+		<main>
+			<div class="f12">点击得票数最多人的头像</div>
+			
+	
+	
+	
+			<div class="box">
+				<div class="container">
+					<div class="item01 item" id="b1">
+						<div class="box-1" id="box1"></div>
+						<div class="box-2">1号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item02 item" id="b2">
+						<div class="box-1" id="box2"></div>
+						<div class="box-2">2号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item03 item" id="b3">
+						<div class="box-1" id="box3"></div>
+						<div class="box-2">3号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+
+					<div class="item04 item" id="b4">
+						<div class="box-1" id="box4"></div>
+						<div class="box-2">4号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item05 item" id="b5">
+						<div class="box-1" id="box5"></div>
+						<div class="box-2">5号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item06 item" id="b6">
+						<div class="box-1" id="box6"></div>
+						<div class="box-2">6号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item01 item" id="b7">
+						<div class="box-1" id="box7"></div>
+						<div class="box-2">7号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item02 item" id="b8">
+						<div class="box-1" id="box8"></div>
+						<div class="box-2">8号</div>
+						<div class="icon-u21"></div>
+						
+					</div>
+					<div class="item03 item" id="b9">
+						<div class=" box-1" id="box9"></div>
+					    <div class="box-2">9号</div>
+					    <div class="icon-u21"></div>
+					    
+					</div>
+				
+
+				    <div class="item04 item" id="b10">
+					<div class="box-1" id="box10"></div>
+					<div class="box-2">10号</div>
+					<div class="icon-u21"></div>
+					
+				    </div>
+				   <div class="item05 item" id="b11"> 
+					<div class="box-1" id="box11"></div>
+					<div class="box-2">11号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+				<div class="item06 item" id="b12">
+					<div class="box-1" id="box12"></div>
+					<div class="box-2">12号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+				<div class="item01 item" id="b13">
+					<div class="box-1" id="box13"></div>
+					<div class="box-2">13号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+				<div class="item02 item" id="b14">
+					<div class="box-1" id="box14"></div>
+					<div class="box-2">14号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+				<div class="item03 item" id="b15">
+					<div class="box-1" id="box15"></div>
+					<div class="box-2">15号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+
+				<div class="item04 item" id="b16">
+					<div class="box-1" id="box16"></div>
+					<div class="box-2">16号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+				<div class="item05 item" id="b17">
+					<div class="box-1" id="box17"></div>
+					<div class="box-2">17号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+				<div class="item06 item" id="b18">
+					<div class="box-1" id="box18"></div>
+					<div class="box-2">18号</div>
+					<div class="icon-u21"></div>
+					
+				</div>
+			</div>
+			</div>
+
+		</main>
+		
+		
+		<footer>
+			<div class="ml20">
+				<div class="f20" id="confirmButton">确认</div>
+			</div>
+
+		</footer>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<script type="text/javascript">
+			
+			 //先给item打上notVoted标识
+			$(".item").addClass("notVoted");
+			
+			let ar =JSON.parse( sessionStorage.getItem('key'));
+			let aar =JSON.parse( sessionStorage.getItem('aarkey'));
+			
+		    let t = ar.length;
+			let br =JSON.parse( sessionStorage.getItem('brkey'));
+			let cr =JSON.parse( sessionStorage.getItem('crkey'));
+			console.log("t:" + t);
+			
+			
+				  
+				  
+				   //总共有18个方格,只不过只隐藏了一部分.
+		    $(".item").slice(t).css("visibility", "hidden");
+				   
+				   
+				   //方格里的文字
+				   $("#box1").html(ar[0]);
+				   $("#box2").html(ar[1]);
+				   $("#box3").html(ar[2]);
+				   $("#box4").html(ar[3]);
+				   $("#box5").html(ar[4]);
+				   $("#box6").html(ar[5]);
+				   $("#box7").html(ar[6]);
+				   $("#box8").html(ar[7]);
+				   $("#box9").html(ar[8]);
+				   $("#box10").html(ar[9]);
+				   $("#box11").html(ar[10]);
+				   $("#box12").html(ar[11]);
+				   $("#box13").html(ar[12]);
+				   $("#box14").html(ar[13]);
+				   $("#box15").html(ar[14]);
+				   $("#box16").html(ar[15]);
+				   $("#box17").html(ar[16]);
+				   $("#box18").html(ar[17]);
+				   
+			 for(let i=0;i<br.length;i++){
+				//投过票的背景色变化，                
+								  $("#"+br[i]).children().css("background-color","#83b09a");
+				//投过票的去class标识	
+							       $("#"+br[i]).removeClass("notVoted");
+			}
+				   
+				   
+				   
+			//点击方格,选择投票对象
+			$(document).on("click",".notVoted", function() {
+				$(".item").removeClass("voted");
+				$(this).addClass("voted");
+			
+			});	   
+				   
+				   
+				   //确定投票对象并存储
+			$("#confirmButton").click (function() {
+				
+				 	
+				   	
+				   	$(".voted").addClass("confirmed");
+				   	
+					let k = $(".confirmed").attr("id");
+					if(k!=null){
+						let i = parseInt(k.slice(1)) - 1;
+						
+						
+						
+						br.push(k);
+						cr.push("黑夜:" + (i + 1) + "号被全民投票投死了，真实身份是" + ar[i]);
+						aar[i]="死" + aar[i];
+						
+						sessionStorage.setItem('brkey', JSON.stringify(br));
+						sessionStorage.setItem('crkey', JSON.stringify(cr));
+						sessionStorage.setItem('aarkey', JSON.stringify(aar));
+						console.log("幽灵还有吗：" + aar.includes("幽灵"));
+						console.log("水民还有吗：" + aar.includes("水民"));
+						if (aar.includes("幽灵") == false) {
+							console.log("水民胜利");
+						    location.href="../html/gameover.html";
+						} else if (aar.includes("水民") == false) {
+							console.log("幽灵胜利");
+							location.href="../html/gameover.html";
+						}else{
+							console.log("aar:"+aar);
+								console.log("cr:"+cr);
+								console.log("k:"+k);
+								
+								
+								
+								
+							location.href="../html/lawyer1.html";
+							
+						}
+						
+						
+						
+						
+						
+						
+					}
+				   	
+				   	
+				   	
+				   
+				   
+				  });
+				  
+				  
+				 
+		  
+				  
+				   
+				
+			/*	  
+				
+               onEnterVoted: function() {
+				  
+				   
+				    for(let i=0;i<bbr.length;i++){
+				   					  $("#"+bbr[i]).children().css("background-color","#83b09a");
+				   					 
+				   }
+				   
+				  
+				
+				   
+			   },
+               onEnterMarry: function() {main.innerHTML = '结婚';}
+               },
+			   
+			   
+            
+            });
+			
+			
+			
+			//判断页面来源,选择状态.
+					
+			/*
+				flowers.onclick = function() {
+				switch(fsm.state) {
+				case "dog":
+				fsm.flowers();
+				break;
+				case "love":
+				fsm.confession();
+				break;
+				case "together":
+				fsm.propose();
+				break;
+				default:
+				alert("已经结婚就不要在送花了");
+				}
+				console.log(fsm.state);
+				}
+				
+			*/
+		/*
+		
+			propose.onclick = function() {
+			switch(fsm.state) {
+			case "dog":
+			alert("先送花建立友情吧");
+			break;
+			case "love":
+			case "together":
+			fsm.propose();
+			break;
+			default:
+			alert("不要在求婚了");
+			}
+			console.log(fsm.state);
+			}
+			
+		
+			
+			
+			$("#confirmButton").click (function() {
+				
+				
+				switch(fsm.state) {
+				case "start":
+				
+				//location.href="../html/lawyer.html";
+				fsm.jump();
+				case "vote":
+				
+					
+				//确定投票对象并存储
+				
+			/*
+				br=bbr;
+				
+				$(".voted").addClass("confirmed");
+				let k = $(".confirmed").attr("id");
+				
+				
+				let i = parseInt(k.slice(1)) - 1;
+				
+				
+				
+				br.push(k);
+				cr.push("黑夜:" + (i + 1) + "号被全民投票投死了，真实身份是" + ar[i]);
+				
+				sessionStorage.setItem('brkey', JSON.stringify(br));
+				sessionStorage.setItem('crkey', JSON.stringify(cr));
+				
+				
+				
+				
+				
+		        //location.href="../html/lawyer.html";
+				
+				
+			
+				
+			
+				case "voted":
+				fsm.tovote();
+				
+				
+				
+				break;
+				
+				}
+				console.log(fsm.state);
+			
+				
+				
+			
+				
+				
+				
+					
+				
+				
+				
+			
+				
+			
+			});
+			
+			
+				
+				//点击方格,选择投票对象
+				$(document).on("click",".item:not(.confirmed)", function() {
+					
+					
+					
+					switch(fsm.state) {
+					case "vote":
+					
+					
+					$(".item").removeClass("voted");
+					$(this).addClass("voted");
+					
+					console.log(fsm.state);
+					//console.log(k);
+					console.log(bbr);
+					console.log(br);
+					console.log(cr);
+					
+					
+					
+					break;
+					
+					}
+					
+					
+					
+					console.log(fsm.state);
+					
+				
+				});
+				
+			
+			*/	
+				
+			
+		</script>
+
+	</body>
+
+</html>
