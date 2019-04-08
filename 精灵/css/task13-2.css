@@ -98,49 +98,6 @@ main .container {
   width: 21.25vw;
   background: #F5C97B;
 }
-.item:hover {
-  position: relative;
-}
-.item:hover .icon-u21 {
-  position: absolute;
-  bottom: -8.75vw;
-  left: -0.78125vw;
-  width: 4.6875vw;
-  height: 4.6875vw;
-  background-image: url(../img/u21.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-.item:hover .icon-u22 {
-  position: absolute;
-  bottom: -8.75vw;
-  left: 4.6875vw;
-  width: 4.6875vw;
-  height: 4.6875vw;
-  background-image: url(../img/u22.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-.item:hover .icon-u23 {
-  position: absolute;
-  bottom: -8.75vw;
-  left: 10.15625vw;
-  width: 4.6875vw;
-  height: 4.6875vw;
-  background-image: url(../img/u23.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-.item:hover .icon-u24 {
-  position: absolute;
-  bottom: -8.75vw;
-  left: 15.625vw;
-  width: 4.6875vw;
-  height: 4.6875vw;
-  background-image: url(../img/u24.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
 .item .box-1 {
   text-align: center;
   font-size: 2.34375vw;
