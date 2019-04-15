@@ -32,15 +32,15 @@
 				<div class="f13">剩余玩家</div>					
 				
 				<div class="f13 l" id="left">
-					<div>幽灵<span id="ghost1">1</span>人</div>
+					<div>杀手<span id="ghost1">1</span>人</div>
 				</div>
 				<div class="f13" id="right">
-					<div>水民<span id="waterman1">3</span>人</div>
+					<div>平民<span id="waterman1">3</span>人</div>
 				</div>
 			</div>
 			
-	        <div id="wordA">水民词组：<span way-data="myFormData.waterMan"></span></div>
-	        <div id="wordB">幽灵词组：<span way-data="myFormData.ghost"></span></div>
+	        <div id="wordA">平民词组：<span way-data="myFormData.waterMan"></span></div>
+	        <div id="wordB">杀手词组：<span way-data="myFormData.ghost"></span></div>
 
 		</div>
 		
@@ -66,14 +66,14 @@
 				var aar= JSON.parse(sessionStorage.getItem('aarkey'));
 				
 				console.log(aar);
-				if (aar.includes("幽灵") == false) {
-					console.log("水民胜利");
-				    $(".db").css("background-image","url('../img/game-over.png')");
+				if (aar.includes("杀手") == false) {
+					console.log("平民胜利");
+				    $(".db").css("background-image","url('../img/civilian.png')");
 					
-				} else if (aar.includes("水民") == false) {
-					console.log("幽灵胜利");
-					$(".db").css("background-image","url('../img/ghost-win.png')");
-					$(".db .f16").html("太棒了!你知道么？在捉鬼游戏中只有20%的幽灵取得游戏最终的 胜利哦！");
+				} else if (aar.includes("平民") == false) {
+					console.log("杀手胜利");
+					$(".db").css("background-image","url('../img/killer.png')");
+					$(".db .f16").html("太棒了!你知道么？在杀人游戏中只有20%的杀手取得游戏最终的胜利哦");
 				}
 				
 				
@@ -129,10 +129,10 @@
 				let countGhost=0;
 				for(let i=0; i<aar.length;i++){
 					
-					if(aar[i]=="水民"){
+					if(aar[i]=="平民"){
 						countWaterman ++;
 						}
-					if(aar[i]=="幽灵"){
+					if(aar[i]=="杀手"){
 						countGhost ++;
 						}	
 						
@@ -161,7 +161,7 @@
 					
 				}
 				for(let k=2;k<i+2;k++){
-					let dayArray=["第一天","第二天","第三天","第四天","第五天","第六天","第七天","第八天","第九天","第十天","第十一天","第十二天","第十三天","第十四天","第十五天"];
+					let dayArray=["第一天","第一天","第二天","第二天","第三天","第三天","第四天","第四天","第五天","第五天","第六天","第六天","第七天","第七天","第八天","第八天","第九天","第九天"];
 					let m ="#dialog"+(k-1)+" .dialog-text";
 					let q ="#dialog"+(k-1)+" .f13";
 					console.log(m);

@@ -48,7 +48,7 @@
 
 	<body>
 		<header>
-			<div class="f18">法官日记
+			<div class="f18">杀手杀人
 				<div class="icon-u05"></div>
 				<div class="icon-u06"></div>
 			</div>
@@ -238,14 +238,20 @@
 		
 
 		<script type="text/javascript">
-			let br=[];
-			let cr=[];
+			$(".item").addClass("notVoted");
 			
 			let ar =JSON.parse( sessionStorage.getItem('key'));
+			let aar =JSON.parse( sessionStorage.getItem('aarkey'));
 			
 		    let t = ar.length;
+			let br =JSON.parse( sessionStorage.getItem('brkey'));
+			let cr =JSON.parse( sessionStorage.getItem('crkey'));
+
+			let indicator=0;
 			console.log("t:" + t);
 			
+			
+				  
 				  
 				  
 				   //总共有18个方格,只不过只隐藏了一部分.
@@ -271,46 +277,81 @@
 				   $("#box16").html(ar[15]);
 				   $("#box17").html(ar[16]);
 				   $("#box18").html(ar[17]);
+			 for(let i=0;i<br.length;i++){
+				//投过票的背景色变化，                
+								  $("#"+br[i]).children().css("background-color","#83b09a");
+				//投过票的去class标识	
+							       $("#"+br[i]).removeClass("notVoted");
+			}
+
+			//杀手item增加一个class".killer",
+			function addClassKiller(){
+				
+				for(let n=0; n<ar.length; n++){
+					if(ar[n]=="杀手"){
+						let itemk="#b"+(n+1);
+						
+						$(itemk).addClass("killer");
+					}else{
+						let itemk="#b"+(n+1);
+						$(itemk).addClass("civilian");
+					}
+				}
+			}
+			addClassKiller();
+			
+
+				   
+				   			   
 				   
 				   
 			//点击方格,选择投票对象
-			$(document).on("click",".item", function() {
-				$(".item").removeClass("voted");
+			$(document).on("click",".civilian", function() {
+				indicator = 0;
+					$(".item").removeClass("voted");
 				$(this).addClass("voted");
+
 			
-			});	   
+				
+			
+
+			});	
+			$(document).on("click",".killer", function() {
+				indicator = 1;
+				$(".item").removeClass("voted");
+		
+		    });	      
 				   
 				   
 				   //确定投票对象并存储
 			$("#confirmButton").click (function() {
-			      	
-				  	$(".voted").addClass("confirmed");
+				if(indicator==0){
+
+					$(".voted").addClass("confirmed");
 				  
 				  let k = $(".confirmed").attr("id");
 				  if(k!=null){
 				  	let i = parseInt(k.slice(1)) - 1;
-				  	
-				  	
-				  	
 				  	br.push(k);
-				  	cr.push("黑夜:" + (i + 1) + "号被全民投票投死了，真实身份是" + ar[i]);
-				  let	aar= ar;
+				  	cr.push("黑夜:" + (i + 1) + "号被杀手投票投死了，真实身份是" + ar[i]);
+				   
 				  aar[i]="死"+aar[i];
 				  	
 				  	sessionStorage.setItem('brkey', JSON.stringify(br));
 				  	sessionStorage.setItem('crkey', JSON.stringify(cr));
 				  	sessionStorage.setItem('aarkey', JSON.stringify(aar));
-				  	console.log("幽灵还有吗：" + aar.includes("幽灵"));
-				  	console.log("水民还有吗：" + aar.includes("水民"));
-				  	if (aar.includes("幽灵") == false) {
-				  		console.log("水民胜利");
+				  	console.log("杀手还有吗：" + aar.includes("杀手"));
+				  	console.log("平民还有吗：" + aar.includes("平民"));
+				  	if (aar.includes("杀手") == false) {
+				  		console.log("平民胜利");
 						location.href="../html/gameover.html"; 
 				  	
-				  	} else if (aar.includes("水民") == false) {
-				  		console.log("幽灵胜利");
+				  	} else if (aar.includes("平民") == false) {
+				  		console.log("杀手胜利");
+						  location.href="../html/gameover.html"; 
 				  	}else{
 						console.log("aar:"+aar);
-				  	console.log("k:"+k);
+				  	    console.log("k:"+k);
 				  	
 				  	
 				  	
@@ -326,8 +367,18 @@
 				  	
 				  }
 				  
+					
+				}
+
+				else if(indicator==1){
+					alert("wrong");
+				}
+			      	
+				  
 				  
 				  });
+
+			console.log("indicator:"+indicator);	  
 		  
 				  
 				   

@@ -48,7 +48,7 @@
 
 	<body>
 		<header>
-			<div class="f18">法官日记
+			<div class="f18">投票
 				<div class="icon-u05"></div>
 				<div class="icon-u06"></div>
 			</div>
@@ -272,19 +272,19 @@
 						
 						
 						br.push(k);
-						cr.push("黑夜:" + (i + 1) + "号被全民投票投死了，真实身份是" + ar[i]);
+						cr.push("白天:" + (i + 1) + "号被全民投票投死了，真实身份是" + ar[i]);
 						aar[i]="死" + aar[i];
 						
 						sessionStorage.setItem('brkey', JSON.stringify(br));
 						sessionStorage.setItem('crkey', JSON.stringify(cr));
 						sessionStorage.setItem('aarkey', JSON.stringify(aar));
-						console.log("幽灵还有吗：" + aar.includes("幽灵"));
-						console.log("水民还有吗：" + aar.includes("水民"));
-						if (aar.includes("幽灵") == false) {
-							console.log("水民胜利");
+						console.log("杀手还有吗：" + aar.includes("杀手"));
+						console.log("平民还有吗：" + aar.includes("平民"));
+						if (aar.includes("杀手") == false) {
+							console.log("平民胜利");
 						    location.href="../html/gameover.html";
-						} else if (aar.includes("水民") == false) {
-							console.log("幽灵胜利");
+						} else if (aar.includes("平民") == false) {
+							console.log("杀手胜利");
 							location.href="../html/gameover.html";
 						}else{
 							console.log("aar:"+aar);
@@ -310,6 +310,7 @@
 				   
 				   
 				  });
+				  console.log("aar:"+aar);
 				  
 				  
 				 

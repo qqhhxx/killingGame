@@ -15,7 +15,7 @@
 		
 	</head>
 	<body>
-		<header>法官日记
+		<header>法官台本
 			<a href="#">
 				<div class="icon-u04"></div>
 			</a>
@@ -28,9 +28,23 @@
 				<div id="day1">
 					<div class="date">第一天</div>
 					<div class ="discussAndVote">
-						<div class="discuss">讨论</div>
-						<div class="vote">全民投票</div>
-						<p></p>
+						<div class="vertical-line">
+								<div class="vote">杀手杀人
+									<img src="../img/moon.png" alt="moon">
+								</div>
+								<p class="vote-text"></p>
+								<div class="discuss">亡灵发表遗言
+									<img src="../img/sun.png" alt="sun">
+								</div>
+								<div class="discuss1">玩家依次发言</div>
+								<div class="vote1">全民投票</div>
+								<p class="vote1-text"></p>
+								  
+
+						</div>
+						
+						
+						
 						
 					</div>
 					
@@ -42,20 +56,14 @@
 			
 				
 			<div class="dialog">
-				<div class="dialog-text pt20 pb20 pl20">请玩家依次发言讨论</div>
+				<div class="dialog-text pt20 pb20 pl20" id="dialogText"></div>
 				<div>
 					<div class="pt10 pb10" id="dialog-confirm">确认</div>
 					<div class="pt10 pb10" id="dialog-cancel">取消</div>
 				</div>
 			</div>
 			
-			<div class="order-dialog">
-				<div class="dialog-text pt20 pb20 pl20">请按顺序操作</div>
-				<div>
-					<div class="pt10 pb10" id="order-dialog-confirm">确认</div>
-					<div class="pt10 pb10" id="order-dialog-cancel">取消</div>
-				</div>
-			</div>
+			
 			
 			
 		</main>
@@ -69,91 +77,67 @@
 		
 		<script>
 			$(document).ready(function(){
+
+				//全局变量
+				var crA= JSON.parse(sessionStorage.getItem("crkey"));
+			    var isVote; 
 				
-				let crA= JSON.parse(sessionStorage.getItem("crkey"));
-				
-				
-				
-				
-				
-				let discussed=0;
-				
-				
-				//点击dialog的确认按钮,dialog消失
-				$("#order-dialog-confirm").click(function() {
-							$(".order-dialog").hide();
-							$(".black-layer").hide();
-								
-				});
-				//点击dialog的取消按钮,dialog消失
-				$("#order-dialog-cancel").click(function() {
-							$(".order-dialog").hide();
-							$(".black-layer").hide();
-								
-				});
+
+
+
+		        console.log(crA);
 				
 				
-				
-			
-				
-				
-				
-				
-				//点击dialog的确认按钮,dialog消失
-				$("#dialog-confirm").click(function() {
-							$(".dialog").hide();
-							$(".black-layer").hide();
-							$(".discuss").css("background-color","#83b09a");	
-				});
-				//点击dialog的取消按钮,dialog消失
-				$("#dialog-cancel").click(function() {
-							$(".dialog").hide();
-							$(".black-layer").hide();
-								
-				});
-				
-				
-				
-				
-				//复制
+				//复制节点，显示***天。
 				function cloneItem(){
 					
 						let i=crA.length;
+
 						console.log(i);
-						for(let k=2;k<i+2;k++){
-							$("#day1").clone(true).attr("id","day"+k).appendTo($(".text"));
-							
+						let numberA=Math.round((i+1)/2);
+						console.log("numberA:"+numberA);
+						if(i>1){
+							for(let k=0; k<numberA-1;k++)
+							$("#day1").clone(true).attr("id","day"+parseInt(k+2)).appendTo($(".text"));
+						   
 						}
-						
-					
-					
 				}
 				cloneItem();
+
+
 				
 				
 				//添加第几天,第几天发生了的事情
 			
 				function addText(){
-					var dayArray=["第一天","第二天","第三天","第四天","第五天","第六天","第七天","第八天","第九天","第十天","第十一天","第十二天","第十三天","第十四天","第十五天"]
+					let dayArray=["第一天","第二天","第三天","第四天","第五天","第六天","第七天","第八天","第九天","第十天","第十一天","第十二天","第十三天","第十四天","第十五天"]
+					let i=crA.length;
+					let numberA=Math.floor((i+1)/2);
+					
 					if(crA!=null){
-						for(let i=0;i<crA.length+1;i++){
-							let t="#day"+parseInt(i+1)+" .date";
+						for(let k=0;k<crA.length+1;k++){
+							let t="#day"+parseInt(k+1)+" .date";
 							console.log(t);
-							$(t).html(dayArray[i]);
-							
-							
+							$(t).html(dayArray[k]);
 						}
 						
-						for(let i=0;i<crA.length;i++){
+						for(let k=1;k<numberA+1;k++){
 							
-							let m="#day"+parseInt(i+1)+" .discussAndVote p";
-							$(m).html(crA[i]);
-							$(m).siblings().css("background-color","#83b09a");	
-							console.log("m:"+m);
-							
+							let m="#day"+parseInt(k)+" .discussAndVote .vote-text";
+							let n="#day"+parseInt(k)+" .discussAndVote .vote1-text";
+							let p=parseInt(2*k-2);
+							let q=parseInt(2*k-1);
+							$(m).addClass("text"+p);
+							$(n).addClass("text"+q);
 						}
-						
-						
+
+						for(let k=0;k<crA.length;k++){
+							$(".text"+k).html(crA[k]);
+							
+							
+
+						}
+						console.log("crA:"+crA);
 						
 						
 					}
@@ -165,8 +149,7 @@
 				
 				//点击第几天按钮 弹出日志
 				function dialog(){
-					
-					
+					$(".discussAndVote").hide();
 					    $(".date").click(function(){
 						    $(this).siblings(".discussAndVote").toggle();
 					    });
@@ -175,70 +158,156 @@
 				}
 				dialog();
 				
+				//点击dialog的确认按钮,dialog消失
+				$("#dialog-confirm").click(function() {
+							$(".dialog").hide();
+							$(".black-layer").hide();
+							
+				});
+				//点击dialog的取消按钮,dialog消失
+				$("#dialog-cancel").click(function() {
+							$(".dialog").hide();
+							$(".black-layer").hide();
+								
+				});
+
 				
-				let i=crA.length;
-				 
-				let votePart="#day"+parseInt(i+1)+" .discussAndVote"+" .vote";
-				let discussPart="#day"+parseInt(i+1)+" .discussAndVote"+" .discuss";
-				
-				
-				
-				//点击投票按钮,弹出请按顺序操作对话框或者跳转页面
-				
+		
+					//增加today标记,用于区分已经投过票的那一天不能再投票。
+
+					function addToday(){
+						$("main .text").children("div:last").find(".discussAndVote").addClass("today");
+
+					}
+					addToday();
+
+
+                   
 					
-					$(votePart).click(function() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					//点击杀手杀人按钮，跳转到杀手投票页面
+					$(".today .vote").click(function(){
+						let aa=$(this).css("background-color");
 						
-						
-						
-						console.log("votePart："+votePart);
-						
-						if(discussed==0){
-							$(".order-dialog").show();
-							$(".black-layer").show();
+						if(aa == 'rgb(41, 189, 224)'){
 							
-						}else if(discussed==1){
-							location.href="../html/task13-5.html";
-							
+							location.href="../html/task13-4.html"
+
 						}
-									
-									
-									
-						});
-					
-						
-					$(discussPart).click(function() {
 						
 						
-						console.log("votePart："+votePart);
+					});	
+
+					//点击亡灵发表遗言按钮，弹出对话框，然后背景变色
+					$(".today .discuss").click(function(){
+						let aa=$(this).css("background-color");
+						let aa1=$(this).siblings(".vote").css("background-color");
+						console.log("aa1:"+aa1);
 						
-						discussed=1;
-					    $(".dialog").show();
+						if(aa == 'rgb(41, 189, 224)' && aa1== 'rgb(131, 176, 154)'  ) {
+
+						$("#dialogText").html("请死者亮明身份并且发表遗言");
+						$(".dialog").show();
 						$(".black-layer").show();
-									
-						});	
+
+					    $(this).css("background","#83b09a");
+
+						}else{
+						$("#dialogText").html("请按顺序操作");
+						$(".dialog").show();
+						$(".black-layer").show();
+						}
+					});
+
+					//点击玩家依次发言按钮，弹出对话框，然后背景变色
+					$(".today .discuss1").click(function(){
+
+					   let aa=$(this).css("background-color");
+					   let aa1=$(this).siblings(".discuss").css("background-color");
+						if(aa == 'rgb(41, 189, 224)' && aa1== 'rgb(131, 176, 154)' ){
+
+						$("#dialogText").html("玩家依次发言讨论");
+						$(".dialog").show();
+						$(".black-layer").show();
+					    $(this).css("background","#83b09a");
+
+						}else{
+						$("#dialogText").html("请按顺序操作");
+						$(".dialog").show();
+						$(".black-layer").show();
+						}
+
+					});
+		
 					
+                    //点击全民投票按钮，跳转到全民投票页面
+					$(".today .vote1").click(function(){
+						let aa=$(this).css("background-color");
+					   let aa1=$(this).siblings(".discuss1").css("background-color");
+						if(aa == 'rgb(41, 189, 224)' && aa1== 'rgb(131, 176, 154)' ){
+							location.href="../html/task13-5.html"
+
+						}else{
+						$("#dialogText").html("请按顺序操作");
+						$(".dialog").show();
+						$(".black-layer").show();
+						}
+
+					});	
+
+					//除今天投过票的按钮颜色全部变深色
+					function backgroudDeepen(){
+						$(".vote").css("background","#83b09a");
+						$(".today .vote").css("background","#29BDE0");
+
+						$(".discuss").css("background","#83b09a");
+						$(".today .discuss").css("background","#29BDE0");
+
+						$(".discuss1").css("background","#83b09a");
+						$(".today .discuss1").css("background","#29BDE0");
+
+						$(".vote1").css("background","#83b09a");
+						$(".today .vote1").css("background","#29BDE0");
+
+					}
+					backgroudDeepen();
+
+					//当天杀手投票则背景色变深
+					function todaybackgroud(){
+						let i=crA.length-1;
+						$(".text"+i).prev().css("background","#83b09a");
+					}
+					todaybackgroud();
+
 					
-					
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-				
+
+
+
+
+
+
+
+
+
+
+
+
 
             });
-			
-			
-			
-			
-			
-			
-			
 		</script>
 		
 	</body>

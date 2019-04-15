@@ -34,16 +34,17 @@ header .icon-u13 {
 }
 main {
   padding-bottom: 300px;
+  padding-left: 4px;
+  padding-right: 5px;
+  box-sizing: border-box;
 }
 .text {
-  margin-left: 4px;
-  margin-right: 5px;
+  width: 100%;
   margin-top: 18px;
   background: #F0F0F0;
   font-size: 15px;
 }
 .text .date {
-  width: 100%;
   text-align: center;
   color: #29BDE0;
   background: #fff;
@@ -52,16 +53,48 @@ main {
   border: 1px solid #C9C9C9;
 }
 .text .discussAndVote {
-  display: none;
   margin-top: 10px;
+  border-left: 1px solid red;
+  padding-left: 18px;
+  padding-top: 16px;
   padding-bottom: 16px;
-  width: 100%;
   background: #fff;
   border: 1px solid #C9C9C9;
 }
+.text .discussAndVote .vertical-line {
+  border-left: 1px solid #C9C9C9;
+}
+.text .discussAndVote img[alt="moon"] {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: -45px;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+}
+.text .discussAndVote img[alt="sun"] {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: -45px;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+}
+.text .discussAndVote p {
+  margin-left: 30px;
+  font-size: 12px;
+}
+.text .discussAndVote .vote,
+.text .discussAndVote .discuss {
+  position: relative;
+}
 .text .discussAndVote .discuss,
-.text .discussAndVote .vote {
-  margin: 26px 30px 10px 47px;
+.text .discussAndVote .vote,
+.text .discussAndVote .discuss1,
+.text .discussAndVote .vote1 {
+  margin: 10px 30px 10px 30px;
   color: #fff;
   background: #29BDE0;
   text-align: center;

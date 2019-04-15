@@ -16,7 +16,7 @@
 		
 	</head>
 	<body>
-		<header>法官日记
+		<header>法官台本
 			<a href="#">
 				<div class="icon-u04"></div>
 			</a>
@@ -25,51 +25,48 @@
 			</a>
 		</header>
 		<main>
-			<div class="text">
-				<div id="day1">
-					<div class="date">第一天</div>
-					<div class ="discussAndVote">
-						<div class="discuss">讨论</div>
-						<div class="vote">全民投票</div>
-						<p></p>
+				<div class="text">
+					<div id="day1">
+						<div class="date">第一天</div>
+						<div class ="discussAndVote">
+							<div class="vertical-line">
+									<div class="vote">杀手杀人
+										<img src="../img/moon.png" alt="moon">
+									</div>
+									<p class="vote-text"></p>
+									<div class="discuss">亡灵发表遗言
+										<img src="../img/sun.png" alt="sun">
+									</div>
+									<div class="discuss1">玩家依次发言</div>
+									<div class="vote1">全民投票</div>
+									<p class="vote1-text"></p>
+									  
+	
+							</div>
+							
+							
+							
+							
+						</div>
 						
 					</div>
+					
 					
 				</div>
 				
 				
-			</div>
-			
-			
+					
+				<div class="dialog">
+					<div class="dialog-text pt20 pb20 pl20" id="dialogText"></div>
+					<div>
+						<div class="pt10 pb10" id="dialog-confirm">确认</div>
+						<div class="pt10 pb10" id="dialog-cancel">取消</div>
+					</div>
+				</div>
 				
-			<div class="dialog">
-				<div class="dialog-text pt20 pb20 pl20">请玩家依次发言讨论</div>
-				<div>
-					<div class="pt10 pb10" id="dialog-confirm">确认</div>
-					<div class="pt10 pb10" id="dialog-cancel">取消</div>
-				</div>
-			</div>
-			
-			<div class="order-dialog">
-				<div class="dialog-text pt20 pb20 pl20">请按顺序操作</div>
-				<div>
-					<div class="pt10 pb10" id="order-dialog-confirm">确认</div>
-					<div class="pt10 pb10" id="order-dialog-cancel">取消</div>
-				</div>
-			</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+				
+				
+				
 		</main>
 		<footer>
 			<button class="l"><a href="#">结束游戏</a></button>
@@ -81,55 +78,43 @@
 		
 		<script>
 			$(document).ready(function(){
+
+				//全局变量
+				var crA= JSON.parse(sessionStorage.getItem("crkey"));
+			    var isVote; 
+				
+
+
+
+		        console.log(crA);
 				
 				
-				let discussed=0;
+
 				
 				
-				//点击投票按钮,弹出请按顺序操作对话框或者跳转页面
-				$(".vote").click(function() {
-					if(discussed==0){
-						$(".order-dialog").show();
-						$(".black-layer").show();
-						
-					}else if(discussed==1){
-						location.href="../html/task13-4.html";
-						
-					}
-								
-									
-								
-					});
-				//点击dialog的确认按钮,dialog消失
-				$("#order-dialog-confirm").click(function() {
-							$(".order-dialog").hide();
-							$(".black-layer").hide();
-								
-				});
-				//点击dialog的取消按钮,dialog消失
-				$("#order-dialog-cancel").click(function() {
-							$(".order-dialog").hide();
-							$(".black-layer").hide();
-								
-				});
+		
 				
 				
+				//点击第几天按钮 弹出日志
+				function dialog(){
+					
+					
+					    $(".date").click(function(){
+						    $(this).siblings(".discussAndVote").toggle();
+					    });
+					
+					
+				}
+				dialog();
+
+
 				
-				//弹出请玩家依次发言对话框
 				
-				
-				
-				$(".discuss").click(function() {
-					discussed=1;
-				    $(".dialog").show();
-					$(".black-layer").show();
-								
-					});
 				//点击dialog的确认按钮,dialog消失
 				$("#dialog-confirm").click(function() {
 							$(".dialog").hide();
 							$(".black-layer").hide();
-							$(".discuss").css("background-color","#83b09a");	
+							
 				});
 				//点击dialog的取消按钮,dialog消失
 				$("#dialog-cancel").click(function() {
@@ -137,6 +122,67 @@
 							$(".black-layer").hide();
 								
 				});
+
+				
+		
+
+					function addToday(){
+						$("main .text").children("div:last").find(".discussAndVote").addClass("today");
+
+					}
+					addToday();
+
+					//点击杀手杀人按钮，跳转到杀手投票页面
+					$(".today .vote").click(function(){
+						let aa=$(this).css("background-color");
+						
+						if(aa == 'rgb(41, 189, 224)'){
+							
+							location.href="../html/task13-3.html"
+
+						}
+						
+						
+					});	
+
+					//点击亡灵发表遗言按钮，弹出对话框，然后背景变色
+					$(".today .discuss").click(function(){
+						
+						$("#dialogText").html("请按顺序操作");
+						$(".dialog").show();
+						$(".black-layer").show();
+						
+					});
+
+					//点击玩家依次发言按钮，弹出对话框，然后背景变色
+					$(".today .discuss1").click(function(){
+
+					  
+					
+						$("#dialogText").html("请按顺序操作");
+						$(".dialog").show();
+						$(".black-layer").show();
+						
+
+					});
+		
+					
+                    //点击全民投票按钮，跳转到全民投票页面
+					$(".today .vote1").click(function(){
+					
+						$("#dialogText").html("请按顺序操作");
+						$(".dialog").show();
+						$(".black-layer").show();
+						
+
+					});	
+
+					
+
+					
+
+					
+				
 				
 				
 				

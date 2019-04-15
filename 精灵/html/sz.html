@@ -29,18 +29,18 @@
 				<div class="f18" id="wanjia">玩家配比</div>
 				<div class="mt5">
 					<div class="f13 l" id="left">
-						<div>幽灵<span id="ghost">1</span>人</div>
+						<div>杀手<span id="ghost">1</span>人</div>
 					</div>
 					<div class="f13" id="right">
-						<div>水民<span id="waterman">3</span>人</div>
+						<div>平民<span id="waterman">3</span>人</div>
 					</div>
 				</div>
 			</div>
 
 			<div id="section2">
 				<form way-data="myFormData" way-persistent="true">
-					<div class="bb1"><input type="text" id="waterman-word" name="waterMan" placeholder="水民词组"></div>
-					<div class="bb1"><input type="text" id="ghost-word" name="ghost" placeholder="幽灵词组"></div>
+					<div class="bb1"><input type="text" id="waterman-word" name="waterMan" placeholder="平民词组"></div>
+					<div class="bb1"><input type="text" id="ghost-word" name="ghost" placeholder="杀手词组"></div>
 				</form>
 			</div>
 			<div class="section3">
@@ -195,19 +195,19 @@
 					return input;
 				}
 
-				//创建包含水民和幽灵的数组,并用shuffle()打乱顺序
+				//创建包含平民和杀手的数组,并用shuffle()打乱顺序
 				function createArray() {
 					var arr = new Array();
 					var sliderNumber = Number($("#slidervalue1").val()); //获取滑块的值
-					arr[0] = "水民";
+					arr[0] = "平民";
 					for (var i = 1; i < sliderNumber; i++) {
-						arr.push("水民");
+						arr.push("平民");
 					}
 
 					var a = Math.round(sliderNumber / 3.5);
 
 					for (var i = 0; i < a; i++) {
-						arr[i] = "幽灵"
+						arr[i] = "杀手"
 					}
 
 					arr.shuffle();
