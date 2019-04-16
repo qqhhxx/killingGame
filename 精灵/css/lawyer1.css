@@ -148,6 +148,7 @@ footer a {
   color: #a1a1a1;
   display: none;
   position: absolute;
+  top: 150px;
   left: 0;
   right: 0;
   margin-left: auto;

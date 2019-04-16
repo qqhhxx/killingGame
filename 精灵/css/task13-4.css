@@ -75,6 +75,7 @@ main {
   overflow: scroll;
   background: #29BDE0;
   box-sizing: border-box;
+  position: relative;
 }
 main .f12 {
   padding-top: 12px;
@@ -91,6 +92,50 @@ main .container {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+main .dialog {
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 12px;
+  color: #a1a1a1;
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 240px;
+  z-index: 305;
+}
+main .dialog .dialog-text {
+  border-bottom: 1px solid #999;
+  font-size: 14px;
+}
+main .dialog #dialog-confirm {
+  float: right;
+  width: 50%;
+  border-left: 1px solid #999;
+  text-align: center;
+}
+main .dialog #dialog-cancel {
+  text-align: center;
+}
+main .dialog .pt10 {
+  padding-top: 10px;
+}
+main .dialog .pb10 {
+  padding-bottom: 10px;
+}
+main .dialog .pt20 {
+  padding-top: 20px;
+}
+main .dialog .pb20 {
+  padding-bottom: 20px;
+}
+main .dialog .pl20 {
+  padding-left: 20px;
 }
 .item {
   margin: 5.625vw 0.9375vw;
