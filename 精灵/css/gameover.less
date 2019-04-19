@@ -7,8 +7,7 @@
 @black: #515151;
 body {
     font-family: HiraginoSansGB-W3;
-	border:1px solid red;
-	background-color: @bg-blue;
+	
 }
 
 header {
@@ -78,7 +77,15 @@ header {
         color: rgba(166, 166, 166, 1);
 		background:#fff;
     }
-	.dialog-text{
+    .dialog-text1, .dialog-text2{
+        padding-left: 66/6.4vw;
+        font-weight: normal;
+        color: rgba(166, 166, 166, 1);
+		background:#fff;
+
+    }
+
+	.dialog-text2{
 		border-bottom: 1px solid #ddd;
 	}
    
@@ -120,4 +127,10 @@ footer {
         text-decoration: none;
         color: #fff;
     }
+}
+@media (min-width: 768px){
+	footer .l, footer .r{
+		width:325.2px;
+
+	}
 }

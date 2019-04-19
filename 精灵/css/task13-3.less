@@ -5,6 +5,7 @@
 @y1: #F5C97B;
 @y2: #FBB435;
 @bg-yellow: #FBB435;
+@vw:7.68px;
 html {
     box-sizing: border-box;
 }
@@ -261,3 +262,23 @@ footer {
 	
 }
 
+.voted,.dead{
+    background: red;
+}
+
+@media(min-width: 768px){
+    .item:hover {
+        position: relative;
+         .icon-u21 {
+            position: absolute;
+            bottom: -56/6.4*@vw;
+            left:48/6.4*@vw;
+            width: 30/6.4*@vw;
+            height: 30/6.4*@vw;
+            background-image: url(../img/u21.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+               
+    }
+}

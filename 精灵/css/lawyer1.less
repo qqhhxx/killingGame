@@ -51,6 +51,7 @@ main{
 	padding-left: 4px;
 	padding-right: 5px;
 	box-sizing:border-box;
+	
 }
 
 .text{
@@ -230,7 +231,7 @@ footer {
 
 
 
-.order-dialog {
+.dialog-quit {
 	border: 1px solid #d9d9d9;
 	border-radius: 10px;
 	background: #fff;
@@ -238,42 +239,55 @@ footer {
 	color: #a1a1a1;
 	display: none;
 	position: absolute;
+	top:150px;
 	left: 0;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
 	width: 240px;
+
 	.dialog-text {
 		border-bottom: 1px solid #999;
 		font-size: 14px;
 	}
-	#order-dialog-confirm {
+
+	#dialog-confirm2 {
 		float: right;
 		width: 50%;
 		border-left: 1px solid #999;
 		text-align: center;
 	}
-	#order-dialog-cancel {
+
+	#dialog-cancel2 {
 		text-align: center;
 	}
+
 	.pt10 {
 		padding-top: 10px;
 	}
+
 	.pb10 {
 		padding-bottom: 10px;
 	}
+
 	.pt20 {
 		padding-top: 20px;
 	}
+
 	.pb20 {
 		padding-bottom: 20px;
 	}
+
 	.pl20 {
 		padding-left: 20px;
 	}
+
 	/* 要设定宽度 */
 	z-index: 305;
 }
+
+
+
 
 .black-layer {
 	position: absolute;
@@ -285,4 +299,9 @@ footer {
 	z-index: 300;
 	display: none;
 }
+@media (min-width: 768px){
+	footer .l, footer .r{
+		width:325.2px;
 
+	}
+}

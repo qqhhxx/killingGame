@@ -185,7 +185,7 @@ footer a {
 .dialog .pl20 {
   padding-left: 20px;
 }
-.order-dialog {
+.dialog-quit {
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   background: #fff;
@@ -193,6 +193,7 @@ footer a {
   color: #a1a1a1;
   display: none;
   position: absolute;
+  top: 150px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -201,32 +202,32 @@ footer a {
   /* 要设定宽度 */
   z-index: 305;
 }
-.order-dialog .dialog-text {
+.dialog-quit .dialog-text {
   border-bottom: 1px solid #999;
   font-size: 14px;
 }
-.order-dialog #order-dialog-confirm {
+.dialog-quit #dialog-confirm2 {
   float: right;
   width: 50%;
   border-left: 1px solid #999;
   text-align: center;
 }
-.order-dialog #order-dialog-cancel {
+.dialog-quit #dialog-cancel2 {
   text-align: center;
 }
-.order-dialog .pt10 {
+.dialog-quit .pt10 {
   padding-top: 10px;
 }
-.order-dialog .pb10 {
+.dialog-quit .pb10 {
   padding-bottom: 10px;
 }
-.order-dialog .pt20 {
+.dialog-quit .pt20 {
   padding-top: 20px;
 }
-.order-dialog .pb20 {
+.dialog-quit .pb20 {
   padding-bottom: 20px;
 }
-.order-dialog .pl20 {
+.dialog-quit .pl20 {
   padding-left: 20px;
 }
 .black-layer {
@@ -238,4 +239,10 @@ footer a {
   background: rgba(192, 192, 192, 0.8);
   z-index: 300;
   display: none;
+}
+@media (min-width: 768px) {
+  footer .l,
+  footer .r {
+    width: 325.2px;
+  }
 }

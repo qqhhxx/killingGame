@@ -185,3 +185,21 @@ footer .ml20 .f20 a {
   text-decoration: none;
   color: #fff;
 }
+.dead {
+  background: red;
+}
+@media (min-width: 768px) {
+  .item:hover {
+    position: relative;
+  }
+  .item:hover .icon-u21 {
+    position: absolute;
+    bottom: -67.2px;
+    left: 57.6px;
+    width: 36px;
+    height: 36px;
+    background-image: url(../img/u21.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}

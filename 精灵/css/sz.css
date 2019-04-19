@@ -123,6 +123,21 @@ to provide a positioning context for the range input and other elements.*/
 .section3 .pl16 {
   padding-left: 16px;
 }
+.section3 .pl16 input::-webkit-input-placeholder {
+  color: #fab344;
+}
+.section3 .pl16 input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fab344;
+}
+.section3 .pl16 input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fab344;
+}
+.section3 .pl16 input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fab344;
+}
 .section3 .slider {
   position: absolute;
   left: 0px;

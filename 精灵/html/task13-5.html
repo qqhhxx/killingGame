@@ -237,9 +237,12 @@
 		$(document).on("click", ".notVoted", function () {
 			$(".item").removeClass("voted");
 			$(this).addClass("voted");
+			$(".item").removeClass("dead");
+			$(this).addClass("dead");
 
 		});
 
+		
 
 		//确定投票对象并存储
 		$("#confirmButton").click(function () {

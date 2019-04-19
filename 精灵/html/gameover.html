@@ -44,10 +44,11 @@
 
 	</div>
 
-	<div class="bgwh">
+	<div class="bgwh" id="bgwh1">
 		<div id="dialog1">
-			<div class="f13">第一天</div>
-			<div class="f13 dialog-text"></div>
+			<div class="f13"></div>
+			<div class="dialog-text1"></div>
+			<div class="dialog-text2"></div>
 
 		</div>
 
@@ -152,29 +153,53 @@
 		shownumber();
 
 
-		//日志功能
-		function showDialog() {
-			var crA = JSON.parse(sessionStorage.getItem('crkey'));
+		//复制日志节点
+
+		function cloneDialog(){
+			let crA = JSON.parse(sessionStorage.getItem('crkey'));
+			let i=crA.length;
+
+			let numberA = Math.round((i + 1) / 2);
+				
+				if (i > 1) {
+					for (let k = 0; k < numberA - 1; k++)
+						$("#dialog1").clone(true).attr("id", "dialog" + parseInt(k + 2)).appendTo($("#bgwh1"));
+
+				}
 
 
-			let i = crA.length;
-			for (let k = 2; k < i + 1; k++) {
-				$("#dialog1").clone().attr("id", "dialog" + k).appendTo($(".bgwh"));
-			}
-			for (let k = 2; k < i + 2; k++) {
-				let dayArray = ["第1天", "第1天", "第2天", "第2天", "第3天", "第3天", "第4天", "第4天", "第5天", "第5天", "第6天", "第6天", "第7天",
-					"第7天", "第8天", "第8天", "第9天", "第9天"
-				];
-				let m = "#dialog" + (k - 1) + " .dialog-text";
-				let q = "#dialog" + (k - 1) + " .f13";
-				let n = crA[k - 2];
-
-
-				$(q).html(dayArray[k - 2]);
-				$(m).html(crA[k - 2]);
-			}
 		}
-		showDialog();
+		cloneDialog();
+
+		//日志内容填充
+		function fillDialog(){
+			let crA = JSON.parse(sessionStorage.getItem('crkey'));
+			let i=crA.length;
+			console.log("crA:"+crA);
+
+			let numberA = Math.round((i + 1) / 2);
+			let dayArray = ["第1天", "第2天", "第3天", "第4天", "第5天","第6天","第7天", "第8天","第9天"];
+
+			for (let k = 0; k < numberA; k++) {
+				
+				let m = "#dialog" + (k+1) + " .dialog-text1";
+				let n = "#dialog" + (k+1) + " .dialog-text2";
+				let q = "#dialog" + (k+1) + " .f13";
+				
+
+
+				$(q).html(dayArray[k]);
+				$(m).html(crA[(2*k)]);
+				$(n).html(crA[(2*k+1)]);
+			}
+
+
+		}
+		fillDialog();
+
+
+
+
 	</script>
 </body>
 

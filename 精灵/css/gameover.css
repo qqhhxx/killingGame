@@ -1,7 +1,5 @@
 body {
   font-family: HiraginoSansGB-W3;
-  border: 1px solid red;
-  background-color: #29BDE0;
 }
 header {
   position: relative;
@@ -67,7 +65,14 @@ header .icon-u13 {
   color: #a6a6a6;
   background: #fff;
 }
-.bgwh .dialog-text {
+.bgwh .dialog-text1,
+.bgwh .dialog-text2 {
+  padding-left: 10.3125vw;
+  font-weight: normal;
+  color: #a6a6a6;
+  background: #fff;
+}
+.bgwh .dialog-text2 {
   border-bottom: 1px solid #ddd;
 }
 footer {
@@ -104,4 +109,10 @@ footer .r {
 footer a {
   text-decoration: none;
   color: #fff;
+}
+@media (min-width: 768px) {
+  footer .l,
+  footer .r {
+    width: 325.2px;
+  }
 }

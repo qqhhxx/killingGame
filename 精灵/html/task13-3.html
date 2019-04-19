@@ -290,12 +290,17 @@
 		$(document).on("click", ".civilian", function () {
 			indicator = 0;
 			$(".item").removeClass("voted");
+			$(".item").removeClass("dead");
 			$(this).addClass("voted");
 
 		});
 		$(document).on("click", ".killer", function () {
 			indicator = 1;
 			$(".item").removeClass("voted");
+			$(".item").removeClass("dead");
+			$(this).addClass("dead");
+
+
 
 
 		});

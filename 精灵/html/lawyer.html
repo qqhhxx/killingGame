@@ -63,6 +63,14 @@
 						<div class="pt10 pb10" id="dialog-cancel">取消</div>
 					</div>
 				</div>
+
+				<div class="dialog-quit">
+					<div class="dialog-text pt20 pb20 pl20" id="quitText">本轮游戏是否结束？</div>
+					<div>
+						<div class="pt10 pb10" id="dialog-confirm2">确认</div>
+						<div class="pt10 pb10" id="dialog-cancel2">取消</div>
+					</div>
+				</div>
 				
 				
 				
@@ -159,6 +167,33 @@
 						
 
 					});	
+
+
+					//结束游戏
+					$("footer .l").click(function(){
+						
+						$(".dialog-quit").show();
+						$(".black-layer").show();
+						
+
+
+					});
+
+					//点击dialog的确认按钮,dialog消失,跳转到index页
+				$("#dialog-confirm2").click(function() {
+							$(".dialog-quit").hide();
+							$(".black-layer").hide();
+							location="../index.html";
+							
+				});
+				//点击dialog的取消按钮,dialog消失
+				$("#dialog-cancel2").click(function() {
+							$(".dialog-quit").hide();
+							$(".black-layer").hide();
+								
+				});
+
+
 
 				
             });

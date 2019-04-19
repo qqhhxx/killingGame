@@ -240,7 +240,7 @@ footer {
 }
 
 
-.order-dialog {
+.dialog-quit {
 	border: 1px solid #d9d9d9;
 	border-radius: 10px;
 	background: #fff;
@@ -248,6 +248,7 @@ footer {
 	color: #a1a1a1;
 	display: none;
 	position: absolute;
+	top:150px;
 	left: 0;
 	right: 0;
 	margin-left: auto;
@@ -259,14 +260,14 @@ footer {
 		font-size: 14px;
 	}
 
-	#order-dialog-confirm {
+	#dialog-confirm2 {
 		float: right;
 		width: 50%;
 		border-left: 1px solid #999;
 		text-align: center;
 	}
 
-	#order-dialog-cancel {
+	#dialog-cancel2 {
 		text-align: center;
 	}
 
@@ -295,6 +296,9 @@ footer {
 }
 
 
+
+
+
 .black-layer {
 	position: absolute;
 	top: 0;
@@ -304,4 +308,11 @@ footer {
 	background: rgba(192, 192, 192, 0.8);
 	z-index: 300;
 	display: none;
+}
+
+@media (min-width: 768px){
+	footer .l, footer .r{
+		width:325.2px;
+
+	}
 }

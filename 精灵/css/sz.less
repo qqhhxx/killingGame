@@ -122,6 +122,18 @@ main {
 	margin-bottom: 10px;
 	.pl16{
 		padding-left: 16px;
+		input::-webkit-input-placeholder{
+            color:#fab344;
+        }
+        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+			color:#fab344;
+        }
+        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+			color:#fab344;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+            color:#fab344;
+        }
 	}
 	.slider {
 		position: absolute;

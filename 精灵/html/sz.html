@@ -51,7 +51,7 @@
 						<div class="pt10 pb10" id="dialog-cancel">取消</div>
 					</div>
 				</div>
-				<div class="pl16">请输入玩家数量<input id="slidervalue1" type="textarea" size="2">玩家数量为4-18</div>
+				<div class="pl16">请输入玩家数量<input id="slidervalue1"  value="4"  onfocus="if (value =='4'){value =''}" onblur="if (value ==''){value='4'}" type="text" size="2">玩家数量为4-18</div>
 
 				<div class="slider-item">
 					<button class="subtract-number"></button>
@@ -78,6 +78,7 @@
 
 		<script>
 			localStorage.clear();
+			
 
 			//自定义滑块
 			function showValue() {
