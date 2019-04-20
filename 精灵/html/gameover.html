@@ -82,12 +82,12 @@
 
 		//根据结果显示背景图片
 		function createBackground() {
-			var crA = JSON.parse(sessionStorage.getItem('crkey'));
-			var aar = JSON.parse(sessionStorage.getItem('aarkey'));
-			var deadKiller = countnumber(aar, "死杀手");
-			var deadCivilian = countnumber(aar, "死平民");
-			var nightNumber = countNight(crA);
-			var dayNumber = countDay(crA);
+			let crA = JSON.parse(sessionStorage.getItem('crkey'));
+			let aar = JSON.parse(sessionStorage.getItem('aarkey'));
+			let deadKiller = countnumber(aar, "死杀手");
+			let deadCivilian = countnumber(aar, "死平民");
+			let nightNumber = countNight(crA);
+			let dayNumber = countDay(crA);
 
 
 
@@ -115,8 +115,8 @@
 			let time1 = JSON.parse(sessionStorage.getItem('time1key')); //之前页面设置保存的时间
 			let mss = (time2 - time1);
 
-			var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
+			let hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			let minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
 
 			let time = "本次游戏共计用时" + hours + " 小时 " + minutes + " 分钟 ";
 			$(".db .time").html(time);
@@ -158,15 +158,14 @@
 		function cloneDialog(){
 			let crA = JSON.parse(sessionStorage.getItem('crkey'));
 			let i=crA.length;
-
-			let numberA = Math.round((i + 1) / 2);
+			let numberA = Math.floor((i + 1) / 2);
 				
-				if (i > 1) {
+				if (i > 2) {
 					for (let k = 0; k < numberA - 1; k++)
 						$("#dialog1").clone(true).attr("id", "dialog" + parseInt(k + 2)).appendTo($("#bgwh1"));
 
 				}
-
+				
 
 		}
 		cloneDialog();
@@ -175,9 +174,7 @@
 		function fillDialog(){
 			let crA = JSON.parse(sessionStorage.getItem('crkey'));
 			let i=crA.length;
-			console.log("crA:"+crA);
-
-			let numberA = Math.round((i + 1) / 2);
+			let numberA = Math.floor((i + 1) / 2);
 			let dayArray = ["第1天", "第2天", "第3天", "第4天", "第5天","第6天","第7天", "第8天","第9天"];
 
 			for (let k = 0; k < numberA; k++) {
@@ -185,13 +182,11 @@
 				let m = "#dialog" + (k+1) + " .dialog-text1";
 				let n = "#dialog" + (k+1) + " .dialog-text2";
 				let q = "#dialog" + (k+1) + " .f13";
-				
-
-
 				$(q).html(dayArray[k]);
 				$(m).html(crA[(2*k)]);
 				$(n).html(crA[(2*k+1)]);
 			}
+			
 
 
 		}
