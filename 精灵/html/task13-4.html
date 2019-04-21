@@ -319,6 +319,19 @@
 
 		});
 
+		//该函数用于统计数组里面某一项的个数，
+		function countnumber(aar, num) {
+
+			aar.sort();
+			if (aar.indexOf(num) == -1) {
+				return 0;
+			} else {
+				return aar.lastIndexOf(num) - aar.indexOf(num) + 1;
+
+			}
+
+		}
+
 
 
 
@@ -339,16 +352,26 @@
 					sessionStorage.setItem('brkey', JSON.stringify(br));
 					sessionStorage.setItem('crkey', JSON.stringify(cr));
 					sessionStorage.setItem('aarkey', JSON.stringify(aar));
-					if (aar.includes("杀手") == false) {
+
+
+					let crA = JSON.parse(sessionStorage.getItem('crkey'));
+					let aarA = JSON.parse(sessionStorage.getItem('aarkey'));
+					let killer = countnumber(aarA, "杀手");
+					let civilian = countnumber(aarA, "平民");
+
+					if (killer == civilian) {
 						location.href = "../html/gameover.html";
 
-					} else if (aar.includes("平民") == false) {
+					} else if (killer == 0) {
+						location.href = "../html/gameover.html";
+
+					} else if (civilian == 0) {
 						location.href = "../html/gameover.html";
 					} else {
-
 						location.href = "../html/lawyer1.html";
 
 					}
+
 
 
 				}
@@ -362,13 +385,13 @@
 		//点击dialog的确认按钮,dialog消失
 		$("#dialog-confirm").click(function () {
 			$(".dialog").hide();
-		
+
 
 		});
 		//点击dialog的取消按钮,dialog消失
 		$("#dialog-cancel").click(function () {
 			$(".dialog").hide();
-		
+
 
 		});
 	</script>

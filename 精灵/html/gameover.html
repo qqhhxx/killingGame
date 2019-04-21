@@ -65,7 +65,13 @@
 		function countnumber(aar, num) {
 
 			aar.sort();
-			return aar.lastIndexOf(num) - aar.indexOf(num) + 1;
+			if(aar.indexOf(num)== -1){
+				return 0;
+			}else{
+				return aar.lastIndexOf(num) - aar.indexOf(num) + 1;
+
+			}
+			
 		}
 		//该函数用于统计黑夜的数量
 		function countNight(aar) {
@@ -131,20 +137,14 @@
 
 		function shownumber() {
 
+			
+
+			let crA = JSON.parse(sessionStorage.getItem('crkey'));
 			let aar = JSON.parse(sessionStorage.getItem('aarkey'));
+			let deadKiller = countnumber(aar, "死杀手");
 
-			let countWaterman = 0;
-			let countGhost = 0;
-			for (let i = 0; i < aar.length; i++) {
-
-				if (aar[i] == "平民") {
-					countWaterman++;
-				}
-				if (aar[i] == "杀手") {
-					countGhost++;
-				}
-
-			}
+			let countWaterman = countnumber(aar, "平民");
+			let countGhost = countnumber(aar, "杀手");
 			$("#ghost1").html(countGhost);
 			$("#waterman1").html(countWaterman);
 
