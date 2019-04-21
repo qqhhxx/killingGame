@@ -107,8 +107,24 @@
 			}
 
 			$(".add-number").click(function() {
-				$("#slider1").val("12");
+				let t = $("#slider1").val();
+				
+				if(t==4){
+					$("#slider1").val("12");
 				$("#slidervalue1").val("12");
+
+				}else{
+					let k = $("#slider1").val();
+				k = Number(k) + 1;
+					$("#slider1").val(k);
+
+				$("#slidervalue1").val(t);
+
+				}
+
+
+
+				
 				showValue();
 
 			});
