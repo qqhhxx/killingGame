@@ -108,20 +108,14 @@
 		}
 
 		$(".add-number").click(function () {
-			let t = $("#slider1").val();
-
-			if (t == 4) {
-				$("#slider1").val("12");
-				$("#slidervalue1").val("12");
-
-			} else {
-				let k = $("#slider1").val();
+			
+				let k = $("#slidervalue1").val();
 				k = Number(k) + 1;
 				$("#slider1").val(k);
 
 				$("#slidervalue1").val(k);
 
-			}
+			
 
 
 
@@ -131,7 +125,7 @@
 		});
 
 		$(".subtract-number").click(function () {
-			var t = $("#slider1").val();
+			var t = $("#slidervalue1").val();
 			t = Number(t) - 1;
 			$("#slider1").val(t);
 
